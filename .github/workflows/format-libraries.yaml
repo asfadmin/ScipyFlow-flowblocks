@@ -9,7 +9,7 @@ on:
 
 jobs:
     get-modified-libraries:
-        runs-on: "ubuntu:latest"
+        runs-on: ubuntu-latest
         steps:
             - id: files
               uses: jitterbit/get-changed-files@v1
