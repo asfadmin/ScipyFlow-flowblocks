@@ -20,10 +20,11 @@ jobs:
             - name: Check Message
               id: check-message
               run: 
-                echo Read Commit Message
-                COMMIT_MESSAGE=$(git log -1 --pretty=%B)
-                echo COMMIT_MESSAGE
-                echo "continue=true" >> $GITHUB_OUTPUT
+                echo ${{ github.event.head_commit.message }}
+
+                # COMMIT_MESSAGE=$(git log -1 --pretty=%B)
+                # echo COMMIT_MESSAGE
+                # echo "continue=true" >> $GITHUB_OUTPUT
     get-modified-libraries:
         runs-on: ubuntu-latest
         steps:
