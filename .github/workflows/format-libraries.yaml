@@ -7,6 +7,9 @@ on:
             - "sg/automatic-formatting"
     workflow_dispatch:
 
+env:
+    COMMIT_MESSAGE: "chore: format libraries"
+
 jobs:
     check-message:
         runs-on: ubuntu-latest
@@ -19,27 +22,35 @@ jobs:
 
             - name: Check Message
               id: check-message
-              run: 
-                echo ${{ github.event.head_commit.message }}
+              run: |
+                if [[ "${{ github.event.head_commit.message }}" == "${{ env.COMMIT_MESSAGE }}" ]]; then
+                    echo "Stop action"
+                    echo "CONTINUE=false" >> $GITHUB_OUTPUT
+                else
+                    echo "Continue with action"
+                    echo "CONTINUE=true" >> $GITHUB_OUTPUT
+                fi
 
-                # COMMIT_MESSAGE=$(git log -1 --pretty=%B)
-                # echo COMMIT_MESSAGE
-                # echo "continue=true" >> $GITHUB_OUTPUT
     get-modified-libraries:
+        needs: check-message
         runs-on: ubuntu-latest
         steps:
             - name: Checkout Code
+              if: needs.check-message.outputs.continue == 'true'
               id: checkout
               uses: actions/checkout@v4
 
             - name: Format Libraries
+              if: needs.check-message.outputs.continue == 'true'
               id: format-libraries
               run: |
                 bash ./create_library_lists.sh
 
-            # - name: Commit 
-            #   id: commit
-            #   run: |
-            #     git status
-            #     git add .
-            #     git commit -m "chore: "
+            - name: Commit 
+              if: needs.check-message.outputs.continue == 'true'
+              id: commit
+              run: |
+                git status
+                git add .
+                git commit -m ${{ env.COMMIT_MESSAGE }}
+                git push
