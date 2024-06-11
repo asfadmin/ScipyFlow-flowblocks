@@ -25,11 +25,12 @@ jobs:
               run: |
                 if [[ "${{ github.event.head_commit.message }}" == "${{ env.COMMIT_MESSAGE }}" ]]; then
                     echo "Stop action"
-                    echo "continue=false" >> $GITHUB_OUTPUT
+                    export CONTINUE='false'
                 else
                     echo "Continue with action"
-                    echo "continue=true" >> $GITHUB_OUTPUT
+                    export CONTINUE='true'
                 fi
+                echo "continue=$CONTINUE" >> $GITHUB_OUTPUT
 
     get-modified-libraries:
         needs: check-message
