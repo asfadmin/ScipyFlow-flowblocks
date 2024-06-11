@@ -16,10 +16,11 @@ jobs:
             - name: Checkout Code
               id: checkout
               uses: actions/checkout@v4
-              
+
             - name: Check Message
               id: check-message
               run: 
+                echo Read Commit Message
                 COMMIT_MESSAGE=$(git log -1 --pretty=%B)
                 echo COMMIT_MESSAGE
                 echo "continue=true" >> $GITHUB_OUTPUT
