@@ -8,14 +8,32 @@ on:
     workflow_dispatch:
 
 jobs:
+    check-message:
+        runs-on: ubuntu-latest
+        outputs: 
+            continue: ${{ steps.check-message.continue }}
+        steps:
+            - name: Check Message
+              id: check-message
+              run: 
+                COMMIT_MESSAGE=$(git log -1 --pretty=%B)
+                echo COMMIT_MESSAGE
+                echo "continue=true" >> $GITHUB_OUTPUT
     get-modified-libraries:
         runs-on: ubuntu-latest
         steps:
-            - id: files
-              uses: jitterbit/get-changed-files@v1
-              with:
-                format: 'csv'
-            - run: |
-                for changed_file in ${{ steps.files.outputs.all }}; do
-                    echo "Do something with this ${changed_file}."
-                done
+            - name: Checkout Code
+              id: checkout
+              uses: actions/checkout@v4
+
+            - name: Format Libraries
+              id: format-libraries
+              run: |
+                bash ./create_library_lists.sh
+
+            # - name: Commit 
+            #   id: commit
+            #   run: |
+            #     git status
+            #     git add .
+            #     git commit -m "chore: "
