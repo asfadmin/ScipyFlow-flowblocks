@@ -17,5 +17,6 @@ outputs:
 description: "Returns the concatenation of two input strings."
 """
 
+# adding a comment
 def main(string1, string2):
     return string1 + string2
