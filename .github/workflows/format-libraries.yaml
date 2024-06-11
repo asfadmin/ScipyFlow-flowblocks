@@ -35,6 +35,10 @@ jobs:
         needs: check-message
         runs-on: ubuntu-latest
         steps:
+            - name: debug
+              id: debug
+              run: echo Continue is ${{ needs.check-message.outputs.continue }}
+
             - name: Checkout Code
               if: needs.check-message.outputs.continue == 'true'
               id: checkout
