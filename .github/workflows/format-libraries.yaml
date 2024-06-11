@@ -30,6 +30,7 @@ jobs:
                     echo "Continue with action"
                     export CONTINUE='true'
                 fi
+                echo $CONTINUE
                 echo "continue=$CONTINUE" >> $GITHUB_OUTPUT
 
     get-modified-libraries:
