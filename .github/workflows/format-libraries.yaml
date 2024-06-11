@@ -1,0 +1,21 @@
+name: Format Libraries
+
+on:
+    push:
+        tags:
+            - "v*"
+
+    workflow_dispatch:
+
+jobs:
+    get-modified-libraries:
+        runs-on: "ubuntu:latest"
+        steps:
+            - id: files
+              uses: jitterbit/get-changed-files@v1
+              with:
+                format: 'csv'
+            - run: |
+                for changed_file in ${{ steps.files.outputs.all }}; do
+                    echo "Do something with this ${changed_file}."
+                done
