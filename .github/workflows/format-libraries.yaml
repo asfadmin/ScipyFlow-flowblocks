@@ -32,7 +32,7 @@ jobs:
                 fi
                 echo $CONTINUE
                 echo "out=$CONTINUE" >> $GITHUB_OUTPUT
-                echo $GITHUB_OUTPUT
+                cat $GITHUB_OUTPUT
 
     get-modified-libraries:
         needs: check-message
