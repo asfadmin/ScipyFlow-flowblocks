@@ -4,7 +4,6 @@ on:
     push:
         branches:
             - "main"
-            - "sg/update-action"
     workflow_dispatch:
 
 env:
