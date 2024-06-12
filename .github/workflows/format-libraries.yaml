@@ -56,7 +56,11 @@ jobs:
               if: needs.check-message.outputs.continue == 'true'
               id: commit
               run: |
+                echo Git Status
                 git status
+                echo Add files
                 git add .
+                echo Commit files
                 git commit -m ${{ env.COMMIT_MESSAGE }}
+                echo Start push
                 git push
