@@ -61,6 +61,6 @@ jobs:
                 echo Add files
                 git add .
                 echo Commit files
-                git commit -m ${{ env.COMMIT_MESSAGE }}
+                git commit -m "${{ env.COMMIT_MESSAGE }}"
                 echo Start push
                 git push
