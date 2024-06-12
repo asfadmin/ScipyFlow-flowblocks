@@ -14,7 +14,7 @@ jobs:
     check-message:
         runs-on: ubuntu-latest
         outputs: 
-            continue: ${{ steps.message.out }}
+            continue: ${{ steps.message.outputs.continue }}
         steps:
             - name: Checkout Code
               id: checkout
@@ -31,7 +31,7 @@ jobs:
                     export CONTINUE='true'
                 fi
                 echo $CONTINUE
-                echo "out=$CONTINUE" >> $GITHUB_OUTPUT
+                echo "continue=$CONTINUE" >> $GITHUB_OUTPUT
 
     get-modified-libraries:
         needs: check-message
