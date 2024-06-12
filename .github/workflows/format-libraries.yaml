@@ -1,0 +1,68 @@
+name: Format Libraries
+
+on:
+    push:
+        branches:
+            - "main"
+    workflow_dispatch:
+
+env:
+    COMMIT_MESSAGE: "chore: format libraries"
+
+jobs:
+    check-message:
+        runs-on: ubuntu-latest
+        outputs: 
+            continue: ${{ steps.message.outputs.continue }}
+        steps:
+            - name: Checkout Code
+              id: checkout
+              uses: actions/checkout@v4
+
+            - name: Check Message
+              id: message
+              run: |
+                if [[ "${{ github.event.head_commit.message }}" == "${{ env.COMMIT_MESSAGE }}" ]]; then
+                    echo "Stop action"
+                    export CONTINUE='false'
+                else
+                    echo "Continue with action"
+                    export CONTINUE='true'
+                fi
+                echo $CONTINUE
+                echo "continue=$CONTINUE" >> $GITHUB_OUTPUT
+
+    get-modified-libraries:
+        needs: check-message
+        runs-on: ubuntu-latest
+        steps:
+            - name: debug
+              id: debug
+              run: echo Continue is ${{ needs.check-message.outputs.continue }}
+
+            - name: Checkout Code
+              if: needs.check-message.outputs.continue == 'true'
+              id: checkout
+              uses: actions/checkout@v4
+
+            - name: Format Libraries
+              if: needs.check-message.outputs.continue == 'true'
+              id: format-libraries
+              run: |
+                bash ./create_library_lists.sh
+
+            - name: Commit 
+              if: needs.check-message.outputs.continue == 'true'
+              id: commit
+              run: |
+                echo Git config
+                git config user.email emailaddress@asf-noreply.com
+                git config user.name fakeuser
+                echo Git status
+                git status
+                echo Add files
+                git add .
+                echo Commit files
+                git commit -m "${{ env.COMMIT_MESSAGE }}"
+                echo Start push
+                git push
