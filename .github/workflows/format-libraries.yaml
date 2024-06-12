@@ -56,7 +56,10 @@ jobs:
               if: needs.check-message.outputs.continue == 'true'
               id: commit
               run: |
-                echo Git Status
+                echo Git config
+                git config user.email emailaddress@asf-noreply.com
+                git config user.name fakeuser
+                echo Git status
                 git status
                 echo Add files
                 git add .
