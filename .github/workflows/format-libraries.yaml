@@ -56,8 +56,8 @@ jobs:
               id: commit
               run: |
                 echo Git config
-                git config user.email emailaddress@asf-noreply.com
-                git config user.name fakeuser
+                git config user.email libraryformatter@asf-noreply.com
+                git config user.name LibraryFormatter
                 echo Git status
                 git status
                 echo Add files
