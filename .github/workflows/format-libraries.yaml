@@ -64,8 +64,8 @@ jobs:
               id: commit
               run: |
                 echo Git config
-                # git config user.email libraryformatter@asf-noreply.com
-                # git config user.name LibraryFormatter
+                git config user.email libraryformatter@asf-noreply.com
+                git config user.name LibraryFormatter
                 git remote set-url origin git@github.com:asfadmin/ScipyFlow-flowblocks.git
                 echo Git status
                 git status
