@@ -66,6 +66,8 @@ jobs:
                 echo Git config
                 git config user.email libraryformatter@asf-noreply.com
                 git config user.name LibraryFormatter
+                ssh -T git@github.com
+                ls
                 git remote set-url origin git@github.com:asfadmin/ScipyFlow-flowblocks.git
                 echo Git status
                 git status
