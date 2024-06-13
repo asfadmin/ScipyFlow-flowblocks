@@ -1,4 +1,5 @@
 add.py
 divide.py
 mod.py
+power.py
 subtract.py
