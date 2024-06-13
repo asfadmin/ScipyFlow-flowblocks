@@ -70,11 +70,8 @@ jobs:
               id: commit
               run: |
                 echo Git config
-                git config user.email segallagher@alaska.edu #libraryformatter@asf-noreply.com
-                git config user.name segallagher #LibraryFormatter
-                # # ssh -T git@github.com
-                # ls
-                # git remote set-url origin git@github.com:asfadmin/ScipyFlow-flowblocks.git
+                git config user.email libraryformatter@asf-noreply.com
+                git config user.name LibraryFormatter
                 echo Git status
                 git status
                 echo Add files
