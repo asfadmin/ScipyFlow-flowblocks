@@ -49,6 +49,10 @@ jobs:
               with:
                 ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
+            - name: debug2
+              id: debug2
+              run: sudo -u segallagher ssh -T git@github.com
+
             - name: Format Libraries
               if: needs.check-message.outputs.continue == 'true'
               id: format-libraries
