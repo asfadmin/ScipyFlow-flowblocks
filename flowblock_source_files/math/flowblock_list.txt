@@ -1,7 +1,0 @@
-add.py
-divide.py
-mod.py
-multiply.py
-power.py
-roundup.py
-subtract.py
