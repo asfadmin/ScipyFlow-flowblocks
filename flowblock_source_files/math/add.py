@@ -15,7 +15,7 @@ outputs:
 description: "Returns the sum of a and b"
 """
 
-def main(a, b):
+def main(a= 0, b=0):
     print("type of a:", type(a),"type of b:",  type(b))
     print("a:", a)
     print("b:", b)
