@@ -16,4 +16,5 @@ description: "Returns the sum of a and b"
 """
 
 def main(a, b):
+    print(a + b)
     return str(a + b)
