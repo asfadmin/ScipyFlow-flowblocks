@@ -50,7 +50,7 @@ jobs:
               if: needs.check-message.outputs.continue == 'true'
               id: format-libraries
               run: |
-                bash ./create_library_lists.sh
+                bash ./zip_libraries.sh
 
             - name: Commit 
               if: needs.check-message.outputs.continue == 'true'
