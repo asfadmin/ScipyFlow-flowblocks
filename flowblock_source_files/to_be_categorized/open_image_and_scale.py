@@ -10,6 +10,7 @@ inputs:
         type: Str
     scale:
         type: Number
+        user_input: True
 outputs:
     image:
         type: !CustomClass PIL.Image.Image
@@ -69,8 +70,8 @@ def array2image( imarray ):
     return Image.fromarray(numpy.uint8(imarray))
 
 def scale_image ( image , scale):
-    logging.info(f'Scaling image by 1:{scale}')
-    scaled_size = [int(x/scale) for x in list(image.size)]
+    logging.info(f'Scaling image by {scale}')
+    scaled_size = [int(x*scale) for x in list(image.size)]
     out_image_small = image.resize( scaled_size )
     del image
     gc.collect()
