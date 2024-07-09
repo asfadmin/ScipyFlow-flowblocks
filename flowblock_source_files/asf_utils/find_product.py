@@ -5,6 +5,7 @@ requirements:
 inputs:
     scene_name:
         type: Str
+        user_input: True
 outputs:
     grd_product:
         type: !CustomClass asf_search.ASFProduct.ASFProduct
