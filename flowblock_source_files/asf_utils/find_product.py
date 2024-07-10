@@ -25,6 +25,7 @@ def main(scene_name):
     logging.info(f'Found {scene_name} @ {grd_product.properties["url"]}')
     logging.info(json.dumps(grd_product.properties, indent=2))
 
-    grd_product.properties["url"] = f'http://localhost:443/download/{scene_name}.zip' #f'https://local.asf.alaska.edu/download/{scene_name}.zip'
+    # hack the url to overcome CORS
+    grd_product.properties["url"] = f'http://localhost:8080/download/{scene_name}.zip' #f'https://local.asf.alaska.edu/download/{scene_name}.zip'
 
     return grd_product
