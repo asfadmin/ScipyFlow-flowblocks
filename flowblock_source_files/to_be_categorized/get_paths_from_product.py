@@ -1,7 +1,7 @@
 """
 name: "Get Paths From Product"
 requirements:
-    - glob
+    - glob2
 inputs:
     product_path:
         type: Str

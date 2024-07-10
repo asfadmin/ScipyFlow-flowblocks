@@ -3,20 +3,20 @@ name: "Orient Image"
 requirements:
     - pillow
 inputs:
-    out_image:
+    image:
         type: !CustomClass PIL.Image.Image
 outputs:
-    tiff_info:
+    image:
         type: !CustomClass PIL.Image.Image
 description: "Orients an image"
 """
 
 from PIL import Image, ImageOps
 
-def main (out_image):
+def main (image):
 
     # Mirror data
-    out_image_oriented = ImageOps.mirror(out_image)
+    out_image_oriented = ImageOps.mirror(image)
 
     # Rotate 180
     out_image_oriented = out_image_oriented.rotate(190, Image.NEAREST, expand = 1)
