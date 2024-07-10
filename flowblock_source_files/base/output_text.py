@@ -1,6 +1,5 @@
 """
-type: "flowblock"
-name: "Print to Output Text"
+name: "Output Text"
 inputs:
     input_string:
         type: Str
@@ -8,6 +7,7 @@ inputs:
 description: "Writes the input string to the \"Text Output\" field."
 """
 
+from js import document
+
 def main(input_string):
-    from js import document
     document.getElementById("text").innerText = input_string
