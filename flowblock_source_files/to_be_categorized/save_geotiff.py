@@ -8,6 +8,7 @@ inputs:
         type: Map
     out_path:
         type: Str
+        user_intput: True
 outputs:
 description: "Saves geotiff to a path"
 """
