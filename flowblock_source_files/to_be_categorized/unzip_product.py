@@ -16,6 +16,7 @@ import os
 import zipfile
 
 def main(zip_path):
+    logging.info(f'Hello is this printed')
 
     download_path = os.path.split(zip_path)[0]
 
