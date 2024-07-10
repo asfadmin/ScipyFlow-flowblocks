@@ -1,7 +1,7 @@
 """
 name: "Find ASF Product"
 requirements:
-    - asf_search
+    - asf_search==7.1.0
 inputs:
     scene_name:
         type: Str
