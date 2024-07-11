@@ -28,7 +28,7 @@ def main(URL, path):
     print(resp.text)
 
     # create path if it does not exist
-    if not os.path.exists(path):
+    if not os.path.exists(os.path.dirname(path)):
         os.makedirs(os.path.dirname(path))
 
     # write file
