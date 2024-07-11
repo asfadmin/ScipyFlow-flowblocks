@@ -1,7 +1,7 @@
 """
 name: "Download Product"
 requirements:
-    - asf_search==7.0.0
+    - asf_search==7.0.8
 inputs:
     grd_product:
         type: !CustomClass asf_search.ASFProduct.ASFProduct
