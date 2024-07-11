@@ -23,7 +23,7 @@ def main(zip_path):
     print(f'Examinging {zip_path}')
     print(f'is path: {os.path.exists(zip_path)}')
     print(f'is file: {os.path.isfile(zip_path)}')
-    print(f'is file zip: {zipfile.is_zipfile(zipfile.ZipFile(zip_path, 'r'))}')
+    print(f'is file zip: {zipfile.is_zipfile(zip_path)}')
 
     with zipfile.ZipFile(zip_path, 'r') as zip_ref:
         zip_ref.extractall(download_path)
