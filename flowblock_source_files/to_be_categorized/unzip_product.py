@@ -19,7 +19,7 @@ def main(zip_path):
 
     # Unzip
     print(f'Extracting {zip_path} to {download_path}')
-    print(f'does zip exist: {os.path.exists(zip_path)}')
+    print(f'is file zip: {zipfile.is_zipfile(zipfile.ZipFile(zip_path, 'r'))}')
 
     with zipfile.ZipFile(zip_path, 'r') as zip_ref:
         zip_ref.extractall(download_path)
