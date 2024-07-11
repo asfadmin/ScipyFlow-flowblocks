@@ -12,8 +12,7 @@ inputs:
 outputs:
 description: "Saves geotiff to a path"
 """
-import logging
 
 def main( image, tiff_info, out_path):
-    logging.info('Saving output product')
+    print('Saving output product')
     image.save(out_path,  tiffinfo=tiff_info)

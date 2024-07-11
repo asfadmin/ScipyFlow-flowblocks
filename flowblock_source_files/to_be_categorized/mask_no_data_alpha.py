@@ -12,14 +12,13 @@ outputs:
 description: "Masks an image with a no-data mask"
 """
 
-import logging
 import numpy
 from PIL import Image
 import gc
 
 def main ( image ):
     # Create mask
-    logging.info('Generating no-data mask')
+    print('Generating no-data mask')
     mask = numpy.array(image)
     mask = numpy.where(mask > 1, 255, 0)
     mask_image = Image.fromarray(numpy.uint8(mask)).convert('L')

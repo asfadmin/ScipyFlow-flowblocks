@@ -10,18 +10,17 @@ outputs:
 description: "Unzips ASF product from a file path"
 """
 
-import logging
 import gc
 import os
 import zipfile
 
 def main(zip_path):
-    logging.info(f'Hello is this printed')
+    print(f'Hello is this printed')
 
     download_path = os.path.split(zip_path)[0]
 
     # Unzip
-    logging.info(f'Extracting {zip_path} to {download_path}')
+    print(f'Extracting {zip_path} to {download_path}')
     with zipfile.ZipFile(zip_path, 'r') as zip_ref:
         zip_ref.extractall(download_path)
 

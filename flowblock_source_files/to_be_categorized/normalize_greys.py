@@ -11,13 +11,12 @@ outputs:
 description: "Normalizes the greys of a numpy.ndarray"
 """
 
-import logging
 import gc
 import numpy
 
 def main(imarray):
     average_pixel = imarray.mean()
-    logging.info(f'Normalizing greyscale to average pixel {average_pixel}')
+    print(f'Normalizing greyscale to average pixel {average_pixel}')
 
     # Change to ints
     imarray = numpy.floor(imarray)

@@ -10,11 +10,10 @@ outputs:
 description: "Gets the geographic points from metadata"
 """
 
-import logging
 import xml.etree.ElementTree as ET
 
 def main(hh_metadata_path):
-    logging.info(f'Reading coords from {hh_metadata_path}')
+    print(f'Reading coords from {hh_metadata_path}')
     tree = ET.parse(hh_metadata_path)
     root = tree.getroot()
     points_path = './geolocationGrid/geolocationGridPointList/geolocationGridPoint'

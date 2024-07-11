@@ -17,7 +17,6 @@ outputs:
 description: "Opens an image via an image path and product path, then scales it by a value. Larger numbers mean larger scale factor"
 """
 
-import logging
 import gc
 from PIL import Image
 import shutil
@@ -39,7 +38,7 @@ def main ( hh_image_path, product_path, scale ):
 
 
 def open_image (hh_image_path, product_path):
-    logging.info(f'Reading product TIFF: {hh_image_path}')
+    print(f'Reading product TIFF: {hh_image_path}')
     # Open image as a TIFF
 
     # This throws "decompression bomb" warnings that can be ignored.
@@ -55,7 +54,7 @@ def image2array (image):
 
 def normalize_greys(imarray):
     average_pixel = imarray.mean()
-    logging.info(f'Normalizing greyscale to average pixel {average_pixel}')
+    print(f'Normalizing greyscale to average pixel {average_pixel}')
 
     # Change to ints
     imarray = numpy.floor(imarray)
@@ -70,7 +69,7 @@ def array2image( imarray ):
     return Image.fromarray(numpy.uint8(imarray))
 
 def scale_image ( image , scale):
-    logging.info(f'Scaling image by {scale}')
+    print(f'Scaling image by {scale}')
     scaled_size = [int(x*scale) for x in list(image.size)]
     out_image_small = image.resize( scaled_size )
     del image

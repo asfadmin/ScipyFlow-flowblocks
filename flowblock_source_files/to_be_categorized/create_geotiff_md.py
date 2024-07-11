@@ -10,11 +10,9 @@ outputs:
 description: "Creates geotiff metadata"
 """
 
-import logging
-
 def main (points_list):
     ### Create a geo-referenced image
-    logging.info('Creating Geotiff Metadata')
+    print('Creating Geotiff Metadata')
 
     # Geotiff Tag Keys
     gtk = {
@@ -30,7 +28,7 @@ def main (points_list):
     ### Use 1/10th of points as GCP (Method 2)
     gcp_points = []
 
-    logging.info('Applying GCPs')
+    print('Applying GCPs')
 
     #   GCP's are a tuple of
     #   ( X1, Y1, Z1, Lon1, Lat1, Z_cor1, X2, Y2, Z2, Lon2, Lat2, Z_cor2 ... )
