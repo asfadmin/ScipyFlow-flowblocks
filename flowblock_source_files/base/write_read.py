@@ -1,5 +1,5 @@
 """
-name: "Write/Read file"
+name: "WriteRead file"
 requirements:
 inputs:
     path:
@@ -16,7 +16,7 @@ inputs:
 outputs:
     string:
         type: Str
-description: "Writes or reads to a path depending on write_mode"
+description: "Writes or reads to a path depending on write_mode, returns path on successful write"
 """
 from pathlib import Path
 
