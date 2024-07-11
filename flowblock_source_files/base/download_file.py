@@ -20,16 +20,18 @@ description: "Downloads a file to the specified path"
 import requests
 import os
 
-# adding a comment
 def main(URL, path):
+    # get file from URL
     resp = requests.get(URL)
     if resp.status_code != 200:
         return False
     print(resp.text)
 
+    # create path if it does not exist
     if not os.path.exists(path):
-        os.makedirs(path)
+        os.makedirs(os.path.dirname(path))
 
+    # write file
     with open(path, "w") as f:
         for line in resp.text:
             f.write(line)
