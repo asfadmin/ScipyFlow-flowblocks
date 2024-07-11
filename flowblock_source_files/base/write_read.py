@@ -20,6 +20,7 @@ description: "Writes or reads to a path depending on write_mode, returns path on
 """
 from pathlib import Path
 
+#comment
 def main(path, write_mode, write_contents):
     if write_mode:
         Path(path).write_text(write_contents)
