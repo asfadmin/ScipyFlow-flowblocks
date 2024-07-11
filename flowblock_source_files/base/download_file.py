@@ -24,4 +24,4 @@ def main(URL, Path):
     resp = requests.get(URL)
     if resp.status_code != 200:
         return False
-    print(resp.data)
+    print(resp.text)
