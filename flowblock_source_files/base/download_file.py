@@ -14,6 +14,8 @@ inputs:
 outputs:
     success:
         type: Bool
+    path:
+        type: Str
 description: "Downloads a file to the specified path"
 """
 
@@ -25,7 +27,6 @@ def main(URL, path):
     resp = requests.get(URL)
     if resp.status_code != 200:
         return False
-    print(resp.text)
 
     # create path if it does not exist
     if not os.path.exists(os.path.dirname(path)):
@@ -36,3 +37,4 @@ def main(URL, path):
         for line in resp.text:
             f.write(line)
     print(f'File saved to {path}')
+    return True, path
