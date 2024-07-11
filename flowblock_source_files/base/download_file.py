@@ -1,7 +1,7 @@
 """
 name: "Download File"
 requirements:
-    - urllib3
+    - requests
 inputs:
     URL:
         type: Str
@@ -17,12 +17,11 @@ outputs:
 description: "Downloads a file to the specified path"
 """
 
-import urllib3
-import urllib3.request
+import requests
 
 # adding a comment
 def main(URL, Path):
-    resp = urllib3.request("GET", URL)
-    if resp.status != 200:
+    resp = requests.get(URL)
+    if resp.status_code != 200:
         return False
     print(resp.data)
