@@ -1,5 +1,6 @@
 """
 name: "Write/Read file"
+requirements:
 inputs:
     path:
         type: Str
