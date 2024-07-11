@@ -42,4 +42,7 @@ def main(grd_product, edl_token, download_path='/tmp/data_download'):
     filesizeout = os.stat(fileout).st_size
     print(f'fileout:{fileout}\nfilesizeout:{filesizeout}')
 
+    if download_path == "/":
+        return f'/{grd_product.properties["sceneName"]}.zip'
+
     return f'{download_path}/{grd_product.properties["sceneName"]}.zip'
