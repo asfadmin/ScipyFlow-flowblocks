@@ -6,7 +6,7 @@ inputs:
         type: Str
         user_input: True
     write_mode:
-        type: Str
+        type: Bool
         user_input: True
         default: False
     write_contents:
@@ -20,8 +20,8 @@ description: "Writes or reads to a path depending on write_mode, returns path on
 """
 from pathlib import Path
 
-def main(path, write_mode, write_contents):
-    print(f'path:{path}\write_mode:{write_mode}\write_contents:{write_contents}\n')
+def main(path: str, write_mode: bool, write_contents: str):
+    print(f'path:{path}\nwrite_mode:{write_mode}\nwrite_contents:{write_contents}')
     if write_mode:
         print("writing")
         Path(path).write_text(write_contents)
