@@ -19,6 +19,10 @@ def main(zip_path):
 
     # Unzip
     print(f'Extracting {zip_path} to {download_path}')
+
+    print(f'Examinging {zip_path}')
+    print(f'is path: {os.path.exists(zip_path)}')
+    print(f'is file: {os.path.isfile(zip_path)}')
     print(f'is file zip: {zipfile.is_zipfile(zipfile.ZipFile(zip_path, 'r'))}')
 
     with zipfile.ZipFile(zip_path, 'r') as zip_ref:
