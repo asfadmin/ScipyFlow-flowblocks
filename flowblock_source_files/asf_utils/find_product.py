@@ -25,6 +25,7 @@ def main(scene_name):
     print(json.dumps(grd_product.properties, indent=2))
 
     # hack the url to overcome CORS
+    #aosfhaspojgsopjf
     grd_product.properties["url"] = f'http://localhost:8080/download/{scene_name}.zip' #f'https://local.asf.alaska.edu/download/{scene_name}.zip'
 
     return grd_product
