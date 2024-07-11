@@ -26,5 +26,6 @@ def main(path: str, write_mode: bool, write_contents: str):
         print("writing")
         Path(path).write_text(write_contents)
         return path
+    
     print("reading")
     return Path(path).read_text()
