@@ -45,9 +45,8 @@ def main(URL, directory):
         os.makedirs(os.path.dirname(path))
 
     # write file
-    with open(path, "w") as f:
+    with open(path, 'wb') as f:
         print("Writing to file")
-        for line in resp.content:
-            f.write(line)
+        f.write(resp.content)
     print(f'File saved to {path}')
     return path, True
