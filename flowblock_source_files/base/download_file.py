@@ -21,6 +21,7 @@ description: "Downloads a file to the specified path"
 
 import requests
 import os
+from pathlib import Path
 
 def main(URL, directory):
     # create output path
@@ -33,7 +34,7 @@ def main(URL, directory):
     # get file from URL
     resp = requests.get(URL)
     print(f'resp code: {resp.status_code}')
-    print(f'resp text: {resp.text}')
+    print(f'resp text: {resp.content}')
     if resp.status_code != 200:
         return False
 
@@ -46,7 +47,7 @@ def main(URL, directory):
     # write file
     with open(path, "w") as f:
         print("Writing to file")
-        for line in resp.text:
+        for line in resp.content:
             f.write(line)
     print(f'File saved to {path}')
     return path, True
