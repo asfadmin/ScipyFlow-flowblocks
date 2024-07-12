@@ -32,13 +32,14 @@ def main(URL, directory):
 
     # get file from URL
     resp = requests.get(URL)
-    print(f'resp:{resp}')
+    print(f'resp code: {resp.status_code}')
+    print(f'resp text: {resp.text}')
     if resp.status_code != 200:
         return False
 
     # create path if it does not exist
     x = os.path.exists(os.path.dirname(path))
-    print("does path exist:{x}")
+    print(f"does path exist:{x}")
     if not os.path.exists(os.path.dirname(path)):
         os.makedirs(os.path.dirname(path))
 
