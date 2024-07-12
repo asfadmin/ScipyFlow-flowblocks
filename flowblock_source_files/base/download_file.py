@@ -34,7 +34,7 @@ def main(URL, directory):
     # get file from URL
     resp = requests.get(URL)
     print(f'resp code: {resp.status_code}')
-    print(f'resp text: {resp.content}')
+    # print(f'resp text: {resp.content}')   # Memory error
     if resp.status_code != 200:
         return False
 
