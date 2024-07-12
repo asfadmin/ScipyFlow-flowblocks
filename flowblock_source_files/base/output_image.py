@@ -12,6 +12,7 @@ from io import BytesIO
 import base64
 
 def main(image):
+    print("Display image")
 
     # Return image as data
     buffered = BytesIO()
