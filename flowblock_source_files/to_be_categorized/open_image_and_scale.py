@@ -69,6 +69,12 @@ def array2image( imarray ):
     return Image.fromarray(numpy.uint8(imarray))
 
 def scale_image ( image , scale):
+    if type(scale) is not int:
+        try:
+            scale = int(scale)
+        except:
+            raise Exception("scale cannot be converted to int")
+
     print(f'Scaling image by 1:{scale}')
     print(f'image_type: {type(image)}\tscale_type: {type(scale)}')
     scaled_size = [int(x/scale) for x in list(image.size)]
