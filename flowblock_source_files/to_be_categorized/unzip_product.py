@@ -23,9 +23,6 @@ def main(zip_path):
     print(f'Examinging {zip_path}')
     print(f'is path: {os.path.exists(zip_path)}')
     print(f'is file: {os.path.isfile(zip_path)}')
-    print(f'attempt opening file without unzipping')
-    with open(zip_path, 'r') as f:
-        print(f.read())
     print(f'is file zip: {zipfile.is_zipfile(zip_path)}')
 
     with zipfile.ZipFile(zip_path, 'r') as zip_ref:
