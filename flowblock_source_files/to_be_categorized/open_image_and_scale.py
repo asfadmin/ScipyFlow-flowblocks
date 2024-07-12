@@ -22,7 +22,7 @@ from PIL import Image
 import shutil
 import numpy
 
-def main ( hh_image_path, product_path, scale ):
+def main ( hh_image_path: str, product_path: str, scale ):
 
     image = open_image(hh_image_path, product_path)
     imarray = image2array(image)
@@ -69,8 +69,8 @@ def array2image( imarray ):
     return Image.fromarray(numpy.uint8(imarray))
 
 def scale_image ( image , scale):
-    print(f'Scaling image by {scale}')
-    scaled_size = [int(x*scale) for x in list(image.size)]
+    print(f'Scaling image by 1:{scale}')
+    scaled_size = [int(x/scale) for x in list(image.size)]
     out_image_small = image.resize( scaled_size )
     del image
     gc.collect()
