@@ -32,15 +32,19 @@ def main(URL, directory):
 
     # get file from URL
     resp = requests.get(URL)
+    print(f'resp:{resp}')
     if resp.status_code != 200:
         return False
 
     # create path if it does not exist
+    x = os.path.exists(os.path.dirname(path))
+    print("does path exist:{x}")
     if not os.path.exists(os.path.dirname(path)):
         os.makedirs(os.path.dirname(path))
 
     # write file
     with open(path, "w") as f:
+        print("Writing to file")
         for line in resp.text:
             f.write(line)
     print(f'File saved to {path}')
