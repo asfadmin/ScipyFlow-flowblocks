@@ -12,10 +12,10 @@ inputs:
         type: Str
         user_input: True
 outputs:
-    success:
-        type: Bool
     path:
         type: Str
+    success:
+        type: Bool
 description: "Downloads a file to the specified path"
 """
 
@@ -37,4 +37,4 @@ def main(URL, path):
         for line in resp.text:
             f.write(line)
     print(f'File saved to {path}')
-    return True, path
+    return path, True
