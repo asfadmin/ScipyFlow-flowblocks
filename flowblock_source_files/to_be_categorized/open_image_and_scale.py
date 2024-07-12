@@ -70,6 +70,7 @@ def array2image( imarray ):
 
 def scale_image ( image , scale):
     print(f'Scaling image by 1:{scale}')
+    print(f'image_type: {type(image)}\tscale_type: {type(scale)}')
     scaled_size = [int(x/scale) for x in list(image.size)]
     out_image_small = image.resize( scaled_size )
     del image
