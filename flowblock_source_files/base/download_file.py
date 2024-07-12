@@ -8,7 +8,7 @@ inputs:
         default: "/"
         user_input: True
 
-    path:
+    directory:
         type: Str
         user_input: True
 outputs:
@@ -22,7 +22,13 @@ description: "Downloads a file to the specified path"
 import requests
 import os
 
-def main(URL, path):
+def main(URL, directory):
+    file_name = os.path.split(directory)[1]
+    if directory == "/":
+        path = f'/{file_name}'
+    else:
+        path = f'{directory}/{file_name}'
+
     # get file from URL
     resp = requests.get(URL)
     if resp.status_code != 200:
