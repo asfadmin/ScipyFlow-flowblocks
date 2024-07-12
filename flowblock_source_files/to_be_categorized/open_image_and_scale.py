@@ -22,7 +22,7 @@ from PIL import Image
 import shutil
 import numpy
 
-def main ( hh_image_path: str, product_path: str, scale ):
+def main ( hh_image_path: str, product_path: str, scale: int ):
 
     image = open_image(hh_image_path, product_path)
     imarray = image2array(image)
