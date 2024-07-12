@@ -19,4 +19,4 @@ def main(image):
     image.save(buffered, format="PNG")
     data = base64.b64encode(buffered.getvalue()).decode("utf-8")
 
-    document.getElementById("img").src = f"data:image/png;base64,{{data}}"
+    document.getElementById("img").src = f"data:image/png;base64,{data}"
