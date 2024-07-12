@@ -23,6 +23,7 @@ import requests
 import os
 
 def main(URL, directory):
+    # create output path
     file_name = os.path.split(URL)[1]
     if directory == "/":
         path = f'/{file_name}'
