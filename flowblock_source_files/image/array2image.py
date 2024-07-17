@@ -1,5 +1,5 @@
 """
-name: "Create Output Image"
+name: "Array to Image"
 requirements:
     - numpy
     - pillow
