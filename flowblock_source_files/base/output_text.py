@@ -4,10 +4,14 @@ inputs:
     input_string:
         type: Str
         user_input: True
-description: "Writes the input string to the \"Text Output\" field."
+description: "Displays the input_string based on platform"
 """
 
-from js import document
+from platform import system
 
 def main(input_string):
-    document.getElementById("text").innerText = input_string
+    if system() == "Emscripten":
+        from js import document
+        document.getElementById("text").innerText = input_string
+    else:
+        print(input_string)

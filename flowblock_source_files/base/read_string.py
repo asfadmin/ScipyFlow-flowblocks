@@ -1,9 +1,8 @@
 """
-type: "flowblock"
 name: "Read User Input String"
 inputs:
     input_string:
-        type: UserInput
+        type: Str
         user_input: True
 outputs:
     output_string:
