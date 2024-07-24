@@ -16,5 +16,5 @@ outputs:
 description: "Does things"
 """
 
-def main(string1, string2):
+def main(string2, string1):
     return string1 + string2 + " is a thing"
