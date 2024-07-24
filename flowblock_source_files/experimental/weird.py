@@ -2,13 +2,13 @@
 name: "Weird"
 requirements:
 inputs:
+    string2:
+        type: Str
+        user_input: True
+
     string1:
         type: Str
         default: "Gurble"
-        user_input: True
-
-    string2:
-        type: Str
         user_input: True
 outputs:
     concatenated_string:
@@ -16,5 +16,5 @@ outputs:
 description: "Does things"
 """
 
-def main(string2, string1):
+def main(string1, string2):
     return string1 + string2 + " is a thing"
