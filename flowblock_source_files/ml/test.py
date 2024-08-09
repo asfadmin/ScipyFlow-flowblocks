@@ -3,6 +3,7 @@ name: "Test ML"
 requirements:
     - ultralytics
     - pandas
+    - torch
     - numpy
     - scipy
     - scikit-learn
