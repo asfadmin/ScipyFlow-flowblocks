@@ -3,6 +3,8 @@ name: "Test ML"
 requirements:
     - ultralytics
     - pandas
+    - numpy
+    - scipy
     - scikit-learn
 inputs:
 outputs:
