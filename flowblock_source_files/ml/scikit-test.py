@@ -1,7 +1,6 @@
 """
 name: "Test ML"
 requirements:
-    - ultralytics
     - pandas
     - numpy
     - scipy
@@ -10,10 +9,11 @@ outputs:
 description: "Returns the sum of a and b"
 """
 # - scikit-learn
+    # - ultralytics
 
 import pandas
 # from sklearn.datasets import load_iris
-import ultralytics
+# import ultralytics
 
 def main():
     pass
