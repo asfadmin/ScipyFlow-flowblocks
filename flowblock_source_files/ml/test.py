@@ -3,17 +3,16 @@ name: "Test ML"
 requirements:
     - ultralytics
     - pandas
-    - torch
     - numpy
     - scipy
-    - scikit-learn
-inputs:
+# inputs:
 outputs:
 description: "Returns the sum of a and b"
 """
+# - scikit-learn
 
 import pandas
-from sklearn.datasets import load_iris
+# from sklearn.datasets import load_iris
 import ultralytics
 
 def main():
