@@ -15,6 +15,8 @@ import pandas
 import numpy as np
 import logging
 
+logging.basicConfig(format='%(asctime)s - %(message)s', level=logging.INFO)
+
 ## Neural Network from scratch
 ## Made by following tutorials from `The Independent Code`
 ## https://youtu.be/Lakz2MoHy6o?si=7K1_6qzF9D_uUBTL
