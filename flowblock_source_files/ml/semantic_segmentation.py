@@ -107,6 +107,7 @@ for e in range(epochs):
 
         # backward
         grad = mse_prime(y, output)
+        logging.debug("GRADIENT:", type(grad))
         for layer in reversed(network):
             grad = layer.backward(grad, learning_rate)
     
