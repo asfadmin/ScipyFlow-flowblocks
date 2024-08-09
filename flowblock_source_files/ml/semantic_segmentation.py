@@ -44,9 +44,9 @@ class Dense(Layer):
     
     def backward(self, output_gradient, learning_rate):
         weights_gradient = np.dot(output_gradient, self.input.T)
-        logging.info("learning rate:", type(learning_rate), "\nweights_gradient:", type(weights_gradient))
+        logging.info(f"learning rate: {type(learning_rate)}\nweights_gradient: {type(weights_gradient)}")
         self.weights -= learning_rate * weights_gradient
-        logging.info("learning rate:", type(learning_rate), "\noutput_gradient:", type(output_gradient))
+        logging.info(f"learning rate: {type(learning_rate)}\noutput_gradient: {type(output_gradient)}")
         self.bias -= learning_rate * output_gradient
         return np.dot(self.weights.T, output_gradient)
     
@@ -109,7 +109,7 @@ def main():
 
             # backward
             grad = mse_prime(y, output)
-            logging.info("GRADIENT:", type(grad))
+            logging.info(f"GRADIENT: {type(grad)}")
             for layer in reversed(network):
                 grad = layer.backward(grad, learning_rate)
         
