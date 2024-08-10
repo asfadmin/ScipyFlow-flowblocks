@@ -4,7 +4,6 @@ requirements:
     - pandas
     - numpy
     - scipy
-    - keras
     - scikit-learn
 inputs:
 outputs:
@@ -17,8 +16,7 @@ import pandas
 from scipy import signal
 import numpy as np
 import logging
-from keras.datasets import mnist
-from keras.utils import to_categorical
+from sklearn.datasets import fetch_openml
 
 logging.basicConfig(format='%(asctime)s - %(message)s', level=logging.INFO)
 
@@ -141,25 +139,32 @@ def binary_cross_entropy_prime(y_true, y_pred):
     return ((1 - y_true) / (1 - y_pred) - y_true / y_pred) / np.size(y_true)
 
 
-# data specific
-# MNIST
-def preprocess_data(x, y, limit):
-    zero_index = np.where(y == 0)[0][:limit]
-    one_index = np.where(y == 1)[0][:limit]
-    all_indicies = np.hstack((zero_index, one_index))
-    all_indicies = np.random.permutation(all_indicies)
-    x, y = x[all_indicies], y[all_indicies]
-    x = x.reshape(len(x), 1, 28, 28)
-    x = x.astype("float32") / 255
-    y = to_categorical(y)
-    y = y.reshape(len(y), 2, 1)
-    return x, y
+# # data specific
+# # MNIST
+# def preprocess_data(x, y, limit):
+#     zero_index = np.where(y == 0)[0][:limit]
+#     one_index = np.where(y == 1)[0][:limit]
+#     all_indicies = np.hstack((zero_index, one_index))
+#     all_indicies = np.random.permutation(all_indicies)
+#     x, y = x[all_indicies], y[all_indicies]
+#     x = x.reshape(len(x), 1, 28, 28)
+#     x = x.astype("float32") / 255
+#     y = to_categorical(y)
+#     y = y.reshape(len(y), 2, 1)
+#     return x, y
 
 # Execute code
 def main():
 
-    (x_train, y_train), (x_test, y_test) = mnist.load_data()
-    logging.info(f"x_train\n{x_train}")
+    # Fetch the MNIST dataset
+    mnist = fetch_openml('mnist_784', version=1)
+
+    # Extract features and target labels
+    X, y = mnist.data, mnist.target
+
+    # Print the shapes
+    print("Features shape:", X.shape)
+    print("Labels shape:", y.shape)
 
 
     # XOR solution
