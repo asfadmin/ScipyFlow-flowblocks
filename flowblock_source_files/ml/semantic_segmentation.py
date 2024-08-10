@@ -163,9 +163,8 @@ def main():
     X, y = mnist.data, mnist.target
 
     # Print the shapes
-    print("Features shape:", X.shape)
-    print("Labels shape:", y.shape)
-
+    logging.info(f"Features shape: {X.shape}")
+    logging.info(f"Labels shape: {y.shape}")
 
     # XOR solution
     X = np.reshape([[0,0],[0,1],[1,0],[1,1]], (4,2,1))
