@@ -43,6 +43,7 @@ class Dense(Layer):
         return np.dot(self.weights, self.input) + self.bias
     
     def backward(self, output_gradient, learning_rate):
+        logging.info(f"output_gradient: {output_gradient}")
         logging.info(f"self.input: {self.input}")
         weights_gradient = np.dot(output_gradient, self.input.T)
         logging.info(f"learning rate: {learning_rate}\nweights_gradient: {weights_gradient}")
