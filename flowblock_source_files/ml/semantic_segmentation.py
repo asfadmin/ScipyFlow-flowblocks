@@ -204,8 +204,8 @@ def CNN_example():
     
 
     # Print the shapes
-    logging.info(f"Features shape: {x.shape}\tFeatures columns: {x.columns}")
-    logging.info(f"Labels shape: {y.shape}\tLabels columns: {y.columns}")
+    logging.info(f"Features shape: {x.shape}\tType: {type(x)}")
+    logging.info(f"Labels shape: {y.shape}\tType: {type(y)}")
 
 
 # Execute code
