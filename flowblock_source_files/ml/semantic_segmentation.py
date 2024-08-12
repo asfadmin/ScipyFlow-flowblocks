@@ -204,7 +204,7 @@ def CNN_example():
     # Preprocess data
     # mask = 
     for item in y.items():
-        logging.info(f"{item}\t{type(item)}")
+        logging.info(f"{item}\t{type(item)}\t{type(item[1])}")
 
     # Print the shapes
     logging.info(f"Features shape: {x.shape}\tType: {type(x)}")
