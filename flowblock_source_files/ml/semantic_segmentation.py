@@ -12,8 +12,8 @@ outputs:
 description: "A test flowblock to show semantic segmentation in pyodide"
 """
 
-import pandas
 from scipy import signal
+import pandas as pd
 import numpy as np
 import logging
 from sklearn.datasets import fetch_openml
@@ -198,10 +198,12 @@ def CNN_example():
     mnist = fetch_openml('mnist_784', version=1)
 
     # Extract features and target labels
-    x, y = mnist.data, mnist.target
+    x: pd.DataFrame = mnist.data
+    y: pd.Series = mnist.target
 
     # Preprocess data
-    
+    # mask = 
+    logging.info(f"{y}")
 
     # Print the shapes
     logging.info(f"Features shape: {x.shape}\tType: {type(x)}")
