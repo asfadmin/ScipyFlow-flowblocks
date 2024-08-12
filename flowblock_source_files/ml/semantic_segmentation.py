@@ -157,7 +157,7 @@ def binary_cross_entropy_prime(y_true, y_pred):
 ## Models
 
 def NN_example():
-    # XOR solution
+    # XOR solution data
     X = np.reshape([[0,0],[0,1],[1,0],[1,1]], (4,2,1))
     Y = np.reshape([[0],[1],[1],[0]],(4,1,1))
 
@@ -192,15 +192,20 @@ def NN_example():
         logging.info('%d/%d, error=%f' % (e + 1, epochs, error))
 
 def CNN_example():
+    logging.info(f"Starting CNN example")
+    logging.info(f"Downloading MNIST dataset")
     # Fetch the MNIST dataset
     mnist = fetch_openml('mnist_784', version=1)
 
     # Extract features and target labels
-    X, y = mnist.data, mnist.target
+    x, y = mnist.data, mnist.target
+
+    # Preprocess data
+    
 
     # Print the shapes
-    logging.info(f"Features shape: {X.shape}")
-    logging.info(f"Labels shape: {y.shape}")
+    logging.info(f"Features shape: {x.shape}\tFeatures columns: {x.columns}")
+    logging.info(f"Labels shape: {y.shape}\tLabels columns: {y.columns}")
 
 
 # Execute code
