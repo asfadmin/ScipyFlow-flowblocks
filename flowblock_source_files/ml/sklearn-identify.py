@@ -1,32 +1,41 @@
 """
 name: "Create Classifier"
 requirements:
-    - pandas
-    - numpy
     - scikit-learn
 inputs:
     X:
         type: !CustomClass numpy.ndarray
     y:
         type: !CustomClass numpy.ndarray
-    test_size:
+    hidden_layer_sizes:
+        type: Sequence
+        default: (100,)
+        user_input: True
+    max_iter:
         type: Number
-        default: 0.2
+        default: 200
+        user_input: True
+    activation:
+        type: Str
+        default: "relu"
+        user_input: True
+    random_state:
+        type: Number
+        default: None
+        user_input: True
 outputs:
-    debug:
+    MLPClassifier:
         type: !CustomClass sklearn.neural_network._multilayer_perceptron.MLPClassifier
 description: "Returns a trained sklearn MLP"
 """
 
 import logging
-from sklearn.model_selection import train_test_split
 from sklearn.neural_network import MLPClassifier
 logging.basicConfig(format='%(asctime)s - %(message)s', level=logging.INFO)
 
 def main(
         X,
         y,
-        test_size:float = 0.2,
         hidden_layer_sizes:tuple = (100,),
         activation:str = 'relu',
         solver:str = 'adam',
@@ -51,6 +60,23 @@ def main(
         n_iter_no_change = 10,
         max_fun:int = 15000,
         ):
+    
+    logging.info(f"Reformat inputs")
+    logging.info(f"Current Inputs\nhidden_layer_sizes:{hidden_layer_sizes}\t{type(hidden_layer_sizes)}\nmax_iter:{max_iter}\t{type(max_iter)}\nrandom_state:{random_state}\t{type(random_state)}")
+    ## Temporary set "None" to None
+    ## Remove after scipyflow issue #116 is completed
+    from ast import literal_eval
+    logging.info(f"literal_eval imported")
+    hidden_layer_sizes = tuple(hidden_layer_sizes)
+    logging.info(f"hidden_layer_sizes: {hidden_layer_sizes}\ttype:{type(hidden_layer_sizes)}")
+    # hidden_layer_sizes = literal_eval(hidden_layer_sizes)
+    hidden_layer_sizes = (150, 100, 50)
+    logging.info(f"hiddenlayer: {hidden_layer_sizes}\t{type(hidden_layer_sizes)}")
+    max_iter = int(max_iter)
+    logging.info(f"max_iter: {max_iter}\t{type(max_iter)}")
+    if random_state == "None":
+        random_state == None
+    ## End temporary code
     
     logging.info("Create MLPClassifier")
     
@@ -80,11 +106,6 @@ def main(
                   max_fun=max_fun,
                   )
     
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=test_size)
-    model.fit(X_train,y_train)
-    
-    score = model.score(X_test, y_test)
-    
-    logging.info(f"Model score: {score}")
+    model.fit(X,y)
     
     return model
