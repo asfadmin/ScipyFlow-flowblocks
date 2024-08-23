@@ -4,14 +4,14 @@ requirements:
 inputs:
     path:
         type: Str
-        user_input: True
+        user_input: Text
     write_mode:
         type: Bool
-        user_input: True
+        user_input: Text
         default: False
     write_contents:
         type: Str
-        user_input: True
+        user_input: Text
         default: ""
 outputs:
     string:

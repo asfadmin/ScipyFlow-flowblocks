@@ -5,12 +5,12 @@ inputs:
     string1:
         type: Str
         default: "Python"
-        user_input: True
+        user_input: Text
 
     string2:
         type: Str
         default: " exists"
-        user_input: True
+        user_input: Text
 outputs:
     concatenated_string:
         type: Str

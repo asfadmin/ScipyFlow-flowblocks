@@ -6,11 +6,11 @@ inputs:
     a:
         type: Number
         default: 0
-        user_input: True
+        user_input: Text
     b:
         type: Number
         default: 0
-        user_input: True
+        user_input: Text
 outputs:
     sum:
         type: Number

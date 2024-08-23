@@ -10,19 +10,19 @@ inputs:
     hidden_layer_sizes:
         type: Sequence
         default: (100,)
-        user_input: True
+        user_input: Text
     max_iter:
         type: Number
         default: 200
-        user_input: True
+        user_input: Text
     activation:
         type: Str
         default: "relu"
-        user_input: True
+        user_input: Text
     random_state:
         type: Number
         default: None
-        user_input: True
+        user_input: Text
 outputs:
     MLPClassifier:
         type: !CustomClass sklearn.neural_network._multilayer_perceptron.MLPClassifier

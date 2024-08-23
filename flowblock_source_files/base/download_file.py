@@ -6,11 +6,11 @@ inputs:
     URL:
         type: Str
         default: "/"
-        user_input: True
+        user_input: Text
 
     directory:
         type: Str
-        user_input: True
+        user_input: Text
 outputs:
     path:
         type: Str

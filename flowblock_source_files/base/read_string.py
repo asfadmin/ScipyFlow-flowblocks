@@ -3,7 +3,7 @@ name: "Read User Input String"
 inputs:
     input_string:
         type: Str
-        user_input: True
+        user_input: Text
 outputs:
     output_string:
         type: Str

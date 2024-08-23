@@ -10,7 +10,7 @@ inputs:
         type: Str
     scale:
         type: Number
-        user_input: True
+        user_input: Text
 outputs:
     image:
         type: !CustomClass PIL.Image.Image

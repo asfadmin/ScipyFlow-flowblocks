@@ -11,7 +11,7 @@ inputs:
     test_size:
         type: Number
         default: 0.2
-        user_input: True
+        user_input: Text
     random_state:
         type: Number
         default: None

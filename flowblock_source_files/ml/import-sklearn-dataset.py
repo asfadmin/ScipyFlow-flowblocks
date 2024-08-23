@@ -6,15 +6,15 @@ requirements:
 inputs:
     dataset_name:
         type: Str
-        user_input: True
+        user_input: Text
     n_class:
         type: Number
         default: None
-        user_input: True
+        user_input: Text
     scaled:
         type: Bool
         default: None
-        user_input: True
+        user_input: Text
 outputs:
     X:
         type: !CustomClass numpy.ndarray

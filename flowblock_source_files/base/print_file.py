@@ -4,7 +4,7 @@ requirements:
 inputs:
     path:
         type: Str
-        user_input: True
+        user_input: Text
 outputs:
     success:
         type: Bool
