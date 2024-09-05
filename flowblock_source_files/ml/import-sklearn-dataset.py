@@ -6,7 +6,14 @@ requirements:
 inputs:
     dataset_name:
         type: Str
-        user_input: Text
+        user_input: Dropdown
+        options:
+            - "breast_cancer"
+            - "diabetes"
+            - "digits"
+            - "iris"
+            - "linnerud"
+            - "wine"
     n_class:
         type: Number
         default: None
