@@ -49,11 +49,11 @@ inputs:
     name_of_input_1:
         type: << Any, Bool, Binary, Set, Sequence, Str, Map, None, Number, !CustomClass your.type.here >>
         default: << Value this variable should default to >>
-        user_input: << True, False >>
+        user_input: << None, Text, Dropdown, FileUpload >>
     name_of_input_N:
         type: << Any, Bool, Binary, Set, Sequence, Str, Map, None, Number, !CustomClass your.type.here >>
         default: << Value this variable should default to >>
-        user_input: << True, False >>
+        user_input: << None, Text, Dropdown, FileUpload >>
 outputs:
     name_of_output:
         type: << Any, Bool, Binary, Set, Sequence, Str, Map, None, Number, !CustomClass your.type.here >>
