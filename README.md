@@ -105,7 +105,7 @@ You can determine what system the code is currently running on using the platfor
 import platform
 system = platform.system()
 
-if system() == "Emscripten":
+if system == "Emscripten":
     # import web packages
     # Run web only code
 else:
