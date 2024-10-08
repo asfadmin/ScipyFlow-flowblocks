@@ -3,7 +3,7 @@ name: "Output Text"
 inputs:
     input_string:
         type: Str
-        user_input: True
+        user_input: Text
 description: "Displays the input_string based on platform"
 """
 

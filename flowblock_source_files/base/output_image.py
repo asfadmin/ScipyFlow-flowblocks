@@ -3,7 +3,7 @@ name: "Output Image"
 inputs:
     image:
         type: !CustomClass PIL.Image.Image
-        user_input: True
+        user_input: Text
 description: "Writes the input PIL image to the \"Image Output\" field."
 """
 

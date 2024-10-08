@@ -5,15 +5,15 @@ requirements:
 inputs:
     grd_product:
         type: !CustomClass asf_search.ASFProduct.ASFProduct
-        user_input: True
+        user_input: Text
 
     edl_token:
         type: Str
-        user_input: True
+        user_input: Text
 
     download_path:
         type: Str
-        user_input: True
+        user_input: Text
         default: "/tmp/data_download"
         
 outputs:
