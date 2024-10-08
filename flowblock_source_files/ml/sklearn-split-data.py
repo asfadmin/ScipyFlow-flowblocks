@@ -31,9 +31,4 @@ import numpy as np
 from sklearn.model_selection import train_test_split
 
 def main(X:np.ndarray, y:np.ndarray, test_size:float=0.2, random_state:int=None):
-    ## TEMPORARY CODE
-    ## Remove after scipyflow issue #116 is completed
-    if random_state == "None":
-        random_state = None
-    ## End temporary code
     return train_test_split(X, y, test_size=test_size, random_state=random_state)
