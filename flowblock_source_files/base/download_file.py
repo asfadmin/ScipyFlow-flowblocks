@@ -5,11 +5,11 @@ requirements:
 inputs:
     URL:
         type: Str
-        default: "/"
         user_input: Text
 
     directory:
         type: Str
+        default: "/home/web_user/"
         user_input: Text
 outputs:
     path:
