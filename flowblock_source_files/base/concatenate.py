@@ -9,7 +9,7 @@ inputs:
 
     string2:
         type: Str
-        default: " exists"
+        default: "Exists"
         user_input: Text
 outputs:
     concatenated_string:
@@ -17,6 +17,5 @@ outputs:
 description: "Returns the concatenation of two input strings."
 """
 
-# adding a comment
 def main(string1, string2):
     return string1 + string2
