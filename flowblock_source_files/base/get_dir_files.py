@@ -13,7 +13,7 @@ inputs:
 outputs:
     file_paths:
         type: Sequence
-description: "Returns the concatenation of two input strings."
+description: "Gets the files of the file_extension type in a directory"
 """
 
 import os
